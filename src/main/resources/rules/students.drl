@@ -1,0 +1,38 @@
+package com.cwc.student.rules;
+
+import com.cwc.student.model.Student;
+
+rule "Failing Score"
+    when
+        $student : Student(marks <= 40)
+    then
+        System.out.println($student.getName() + " has failed.");
+end
+
+rule "Too Low Score"
+    when
+        $student : Student(marks > 40 && marks <= 50)
+    then
+        System.out.println($student.getName() + " has a too low score.");
+end
+
+rule "Average Score"
+    when
+        $student : Student(marks > 50 && marks <= 60)
+    then
+        System.out.println($student.getName() + " has an average score.");
+end
+
+rule "Good Score"
+    when
+        $student : Student(marks > 60 && marks <= 80)
+    then
+        System.out.println($student.getName() + " has a good score.");
+end
+
+rule "Excellent Score"
+    when
+        $student : Student(marks > 80)
+    then
+        System.out.println($student.getName() + " has an excellent score.");
+end
